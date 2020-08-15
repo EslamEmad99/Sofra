@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sofra</string>
+    <string name="order_food">طلب طعام</string>
+    <string name="sale_food">بيع طعام</string>
 </resources>
