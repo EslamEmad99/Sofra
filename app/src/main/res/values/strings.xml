@@ -2,4 +2,12 @@
     <string name="app_name">Sofra</string>
     <string name="order_food">طلب طعام</string>
     <string name="sale_food">بيع طعام</string>
+    <string name="home">Home</string>
+    <string name="orders">Orders</string>
+    <string name="profile">Profile</string>
+    <string name="more">More</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open">مفتوح</string>
+    <string name="close">مغلق</string>
 </resources>
