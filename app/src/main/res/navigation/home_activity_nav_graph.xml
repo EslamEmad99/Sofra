@@ -25,4 +25,9 @@
         android:name="eslam.emad.sofra.ui.fragments.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="eslam.emad.sofra.ui.fragments.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
 </navigation>

@@ -116,7 +116,7 @@
             android:layout_marginTop="@dimen/_8sdp"
             set_adapter="@{adapter}"
             set_layout_manager="@{layoutManger}"
-            tools:listitem="@layout/restaurants_item"
+            tools:listitem="@layout/item_restaurants"
             android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

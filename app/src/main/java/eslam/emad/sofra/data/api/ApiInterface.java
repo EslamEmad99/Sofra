@@ -1,10 +1,12 @@
 package eslam.emad.sofra.data.api;
 
 import eslam.emad.sofra.data.models.city.CityModel;
+import eslam.emad.sofra.data.models.notifications.NotificationModel;
 import eslam.emad.sofra.data.models.my_categorize.MyCategorizeModel;
 import eslam.emad.sofra.data.models.restaurants.RestaurantsModel;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -20,4 +22,9 @@ public interface ApiInterface {
     @GET("restaurant/my-categories")
     Call<MyCategorizeModel> getMyCategorize(@Query("api_token") String api_token,
                                             @Query("page") int page);
+
+    @GET("{parameter}/notifications")
+    Call<NotificationModel> getNotifications(@Path("parameter") String parameter,
+                                             @Query("api_token") String api_token,
+                                             @Query("page") int page);
 }

@@ -3,7 +3,6 @@ package eslam.emad.sofra.adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,13 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.daimajia.swipe.SwipeLayout;
 
 import eslam.emad.sofra.R;
-import eslam.emad.sofra.data.models.categorize.Category;
 import eslam.emad.sofra.data.models.my_categorize.MyCategory;
-import eslam.emad.sofra.data.models.restaurants.Restaurant;
-import eslam.emad.sofra.databinding.CategorizeItemBinding;
-import eslam.emad.sofra.databinding.RestaurantsItemBinding;
+import eslam.emad.sofra.databinding.ItemCategorizeBinding;
 import eslam.emad.sofra.interfaces.MyCategorizeOnClick;
-import eslam.emad.sofra.interfaces.RestaurantItemOnClick;
 
 public class MyCategorizeAdapter extends PagedListAdapter<MyCategory, MyCategorizeAdapter.MyCategorizeViewHolder> {
 
@@ -38,8 +33,8 @@ public class MyCategorizeAdapter extends PagedListAdapter<MyCategory, MyCategori
     @Override
     public MyCategorizeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        CategorizeItemBinding binding = DataBindingUtil.inflate(inflater,
-                R.layout.categorize_item, parent, false);
+        ItemCategorizeBinding binding = DataBindingUtil.inflate(inflater,
+                R.layout.item_categorize, parent, false);
         return new MyCategorizeAdapter.MyCategorizeViewHolder(binding, onClick);
     }
 
@@ -68,9 +63,9 @@ public class MyCategorizeAdapter extends PagedListAdapter<MyCategory, MyCategori
 
     static class MyCategorizeViewHolder extends RecyclerView.ViewHolder {
 
-        private CategorizeItemBinding binding;
+        private ItemCategorizeBinding binding;
 
-        public MyCategorizeViewHolder(CategorizeItemBinding binding, MyCategorizeOnClick onClick) {
+        public MyCategorizeViewHolder(ItemCategorizeBinding binding, MyCategorizeOnClick onClick) {
             super(binding.getRoot());
             this.binding = binding;
             binding.setOnClick(onClick);

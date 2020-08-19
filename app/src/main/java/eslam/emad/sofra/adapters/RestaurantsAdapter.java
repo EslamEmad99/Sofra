@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import eslam.emad.sofra.R;
 import eslam.emad.sofra.data.models.restaurants.Restaurant;
-import eslam.emad.sofra.databinding.RestaurantsItemBinding;
+import eslam.emad.sofra.databinding.ItemRestaurantsBinding;
 import eslam.emad.sofra.interfaces.RestaurantItemOnClick;
 
 public class RestaurantsAdapter extends PagedListAdapter<Restaurant, RestaurantsAdapter.RestaurantsViewHolder> {
@@ -29,8 +29,8 @@ public class RestaurantsAdapter extends PagedListAdapter<Restaurant, Restaurants
     @Override
     public RestaurantsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        RestaurantsItemBinding binding = DataBindingUtil.inflate(inflater,
-                R.layout.restaurants_item, parent, false);
+        ItemRestaurantsBinding binding = DataBindingUtil.inflate(inflater,
+                R.layout.item_restaurants, parent, false);
         return new RestaurantsViewHolder(binding, onClick);
     }
 
@@ -61,9 +61,9 @@ public class RestaurantsAdapter extends PagedListAdapter<Restaurant, Restaurants
 
     static class RestaurantsViewHolder extends RecyclerView.ViewHolder {
 
-        private RestaurantsItemBinding binding;
+        private ItemRestaurantsBinding binding;
 
-        RestaurantsViewHolder(RestaurantsItemBinding binding, RestaurantItemOnClick onClick) {
+        RestaurantsViewHolder(ItemRestaurantsBinding binding, RestaurantItemOnClick onClick) {
             super(binding.getRoot());
             this.binding = binding;
             binding.setOnClick(onClick);

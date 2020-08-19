@@ -3,6 +3,7 @@ package eslam.emad.sofra.ui.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
@@ -22,13 +23,14 @@ import static eslam.emad.sofra.util.Constants.USER_TYPE;
 public class HomeActivity extends AppCompatActivity implements ActivityHomeOnClick {
 
     ActivityHomeBinding binding;
+    NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.home_bottom_nav);
-        NavController navController = Navigation.findNavController(this, R.id.home_nav_host);
+        navController = Navigation.findNavController(this, R.id.home_nav_host);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
         if(USER_TYPE == UserType.CLIENT){
@@ -43,7 +45,8 @@ public class HomeActivity extends AppCompatActivity implements ActivityHomeOnCli
 
     @Override
     public void onNotificationClick() {
-        Toast.makeText(this, "onNotificationClick", Toast.LENGTH_SHORT).show();
+        NavOptions navOptions = new NavOptions.Builder().setLaunchSingleTop(true).build();
+        navController.navigate(R.id.notificationsFragment, null, navOptions);
     }
 
     @Override

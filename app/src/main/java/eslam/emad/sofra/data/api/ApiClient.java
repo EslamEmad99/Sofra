@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import eslam.emad.sofra.data.models.city.CityModel;
+import eslam.emad.sofra.data.models.notifications.NotificationModel;
 import eslam.emad.sofra.data.models.my_categorize.MyCategorizeModel;
 import eslam.emad.sofra.data.models.restaurants.RestaurantsModel;
 import eslam.emad.sofra.util.MyApplication;
@@ -121,5 +122,9 @@ public class ApiClient {
 
     public Call<MyCategorizeModel> getMyCategorize(String api_token, int page) {
         return apiInterface.getMyCategorize(api_token, page);
+    }
+
+    public Call<NotificationModel> getNotifications(String parameter, String api_token, int page) {
+        return apiInterface.getNotifications(parameter, api_token, page);
     }
 }
