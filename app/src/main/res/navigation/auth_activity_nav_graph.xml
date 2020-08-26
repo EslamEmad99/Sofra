@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_activity_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="eslam.emad.sofra.ui.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_clientRegisterFragment"
+            app:destination="@id/clientRegisterFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_restaurantRegisterFragment"
+            app:destination="@id/restaurantRegisterFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantRegisterFragment"
+        android:name="eslam.emad.sofra.ui.fragments.RestaurantRegisterFragment"
+        android:label="RestaurantRegisterFragment"
+        tools:layout="@layout/fragment_restaurant_register"/>
+    <fragment
+        android:id="@+id/clientRegisterFragment"
+        android:name="eslam.emad.sofra.ui.fragments.ClientRegisterFragment"
+        android:label="ClientRegisterFragment"
+        tools:layout="@layout/fragment_client_register"/>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="eslam.emad.sofra.ui.fragments.ResetPasswordFragment"
+        android:label="ForgetPasswordFragment"
+        tools:layout="@layout/fragment_forget_password">
+        <action
+            android:id="@+id/action_forgetPasswordFragment_to_newPasswordFragment"
+            app:destination="@id/newPasswordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="eslam.emad.sofra.ui.fragments.NewPasswordFragment"
+        android:label="fragment_new_password"
+        tools:layout="@layout/fragment_new_password" >
+        <action
+            android:id="@+id/action_newPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="code"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

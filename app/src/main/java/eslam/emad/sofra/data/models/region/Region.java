@@ -1,5 +1,5 @@
 
-package eslam.emad.sofra.data.models.restaurants;
+package eslam.emad.sofra.data.models.region;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -13,7 +13,7 @@ public class Region {
     private Integer id;
     @SerializedName("created_at")
     @Expose
-    private Object createdAt;
+    private String createdAt;
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
@@ -27,6 +27,14 @@ public class Region {
     @Expose
     private City city;
 
+    public Region() {
+    }
+
+    public Region(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -35,11 +43,11 @@ public class Region {
         this.id = id;
     }
 
-    public Object getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Object createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -75,4 +83,8 @@ public class Region {
         this.city = city;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

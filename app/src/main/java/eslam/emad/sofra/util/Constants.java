@@ -7,4 +7,6 @@ public class Constants {
     public static int REGION_ID = 0;
     public static String RESTAURANT_API_TOKEN = "Jptu3JVmDXGpJEaQO9ZrjRg5RuAVCo45OC2AcOKqbVZPmu0ZJPN3T1sm0cWx";
     public static String CLIENT_API_TOKEN = "K1X6AzRlJFeVbGnHwGYsdCu0ETP1BqYC7DpMTZ3zLvKgU5feHMvsEEnKTpzh";
+    public static String CLIENT_LOGGED_IN = "user_logged_in";
+    public static String RESTAURANT_LOGGED_IN = "restaurant_logged_in";
 }

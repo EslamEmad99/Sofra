@@ -5,15 +5,21 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import eslam.emad.sofra.data.models.city.CityModel;
+import eslam.emad.sofra.data.models.auth.AuthModel;
+import eslam.emad.sofra.data.models.new_password.NewPasswordModel;
 import eslam.emad.sofra.data.models.notifications.NotificationModel;
 import eslam.emad.sofra.data.models.my_categorize.MyCategorizeModel;
+import eslam.emad.sofra.data.models.region.RegionModel;
+import eslam.emad.sofra.data.models.reset_password.ResetPasswordModel;
 import eslam.emad.sofra.data.models.restaurants.RestaurantsModel;
 import eslam.emad.sofra.util.MyApplication;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -116,15 +122,46 @@ public class ApiClient {
         return apiInterface.getAllRestaurants(page, keyword, region_id);
     }
 
-    public Call<CityModel> getAllCities(){
+    public Call<CityModel> getAllCities() {
         return apiInterface.getAllCities();
+    }
+
+    public Call<RegionModel> getRegions(int cityId) {
+        return apiInterface.getRegions(cityId);
     }
 
     public Call<MyCategorizeModel> getMyCategorize(String api_token, int page) {
         return apiInterface.getMyCategorize(api_token, page);
     }
 
-    public Call<NotificationModel> getNotifications(String parameter, String api_token, int page) {
-        return apiInterface.getNotifications(parameter, api_token, page);
+    public Call<NotificationModel> getNotifications(String userType, String api_token, int page) {
+        return apiInterface.getNotifications(userType, api_token, page);
+    }
+
+    public Call<AuthModel> login(String userType, String email, String password) {
+        return apiInterface.login(userType, email, password);
+    }
+
+    public Call<ResetPasswordModel> resetPassword(String userType, String email) {
+        return apiInterface.resetPassword(userType, email);
+    }
+
+    public Call<NewPasswordModel> newPassword(String userType, String code, String password, String passwordConformation) {
+        return apiInterface.newPassword(userType, code, password, passwordConformation);
+    }
+
+    public Call<AuthModel> clientRegister(RequestBody name,
+                                          RequestBody email,
+                                          RequestBody password,
+                                          RequestBody passwordConfirmation,
+                                          RequestBody phone,
+                                          RequestBody regionId,
+                                          MultipartBody.Part profileImage) {
+        return apiInterface.clientRegister(name,
+                email,
+                password,
+                passwordConfirmation,
+                phone,
+                regionId, profileImage);
     }
 }

@@ -15,16 +15,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
-import com.daimajia.swipe.util.Attributes;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import eslam.emad.sofra.R;
 import eslam.emad.sofra.adapters.MyCategorizeAdapter;
 import eslam.emad.sofra.adapters.RestaurantsAdapter;
-import eslam.emad.sofra.data.models.categorize.Category;
 import eslam.emad.sofra.data.models.city.City;
 import eslam.emad.sofra.data.models.my_categorize.MyCategory;
 import eslam.emad.sofra.data.models.restaurants.Restaurant;
@@ -32,6 +28,7 @@ import eslam.emad.sofra.databinding.FragmentHomeBinding;
 import eslam.emad.sofra.interfaces.FragmentHomeOnClick;
 import eslam.emad.sofra.interfaces.MyCategorizeOnClick;
 import eslam.emad.sofra.interfaces.RestaurantItemOnClick;
+import eslam.emad.sofra.ui.view_model.ApplicationViewModel;
 import eslam.emad.sofra.ui.view_model.MyCategorizeViewModel;
 import eslam.emad.sofra.ui.view_model.RestaurantsFragmentViewModel;
 import eslam.emad.sofra.util.UserType;
@@ -43,6 +40,7 @@ import static eslam.emad.sofra.util.Constants.USER_TYPE;
 public class HomeFragment extends Fragment implements RestaurantItemOnClick, FragmentHomeOnClick, MyCategorizeOnClick {
 
     private FragmentHomeBinding binding;
+    private ApplicationViewModel applicationViewModel;
     private RestaurantsFragmentViewModel restaurantsFragmentViewModel;
     private MyCategorizeViewModel myCategorizeViewModel;
     private ArrayList<City> cityArrayList;
@@ -58,6 +56,7 @@ public class HomeFragment extends Fragment implements RestaurantItemOnClick, Fra
         if (USER_TYPE == UserType.CLIENT) {
             restaurantsAdapter = new RestaurantsAdapter(getContext(), this);
             restaurantsFragmentViewModel = new ViewModelProvider(this).get(RestaurantsFragmentViewModel.class);
+            applicationViewModel = new ViewModelProvider(this).get(ApplicationViewModel.class);
             restaurantsFragmentViewModel.getItemPagedList().observe(getViewLifecycleOwner(), new Observer<PagedList<Restaurant>>() {
                 @Override
                 public void onChanged(PagedList<Restaurant> restaurants) {
@@ -67,13 +66,16 @@ public class HomeFragment extends Fragment implements RestaurantItemOnClick, Fra
             binding.setAdapter(restaurantsAdapter);
 
             cityArrayList = new ArrayList<>();
-            cityArrayList.add(new City(0, "اختر المدينة"));
+            cityArrayList.add(new City(0, "المدينة"));
 
-            restaurantsFragmentViewModel.getAllCities().observe(getViewLifecycleOwner(), new Observer<List<City>>() {
+            applicationViewModel.getAllCities().observe(getViewLifecycleOwner(), new Observer<List<City>>() {
                 @Override
                 public void onChanged(List<City> cities) {
                     if (cities != null) {
+                        cityArrayList.clear();
+                        cityArrayList.add(new City(0, "المدينة"));
                         cityArrayList.addAll(cities);
+                        cityArrayAdapter.notifyDataSetChanged();
                     }
                 }
             });

@@ -10,4 +10,34 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">مفتوح</string>
     <string name="close">مغلق</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="password">الرقم السري</string>
+    <string name="do_you_forget_password">هل نسيت الرقم السري ؟</string>
+    <string name="login">دخول</string>
+    <string name="show_password">Show Password</string>
+    <string name="do_not_have_account">ليس لديك حساب ؟ إضغط هنا</string>
+    <string name="restaurant_image">صورة المطعم</string>
+    <string name="register">تسجيل</string>
+    <string name="restaurant_name">اسم المطعم</string>
+    <string name="delivery_time">مدة التوصيل</string>
+    <string name="repeat_password">إعادة الرقم السري</string>
+    <string name="minimum_charge">الحد الأدني للطلب</string>
+    <string name="delivery_cost">تكلفة التوصيل</string>
+    <string name="phone">الجوال</string>
+    <string name="whatsapp">واتساب</string>
+
+    <string name="earth">احمد</string>
+    <string name="moon">محمد</string>
+    <string name="please_enter_your_email">من فضلك قم بإدخال بريدك الألكتروني</string>
+    <string name="send">إرسال</string>
+    <string name="please_write_code">من فضلك قم بكتابة الكود المُرسل إليك</string>
+    <string name="code">الكود</string>
+    <string name="please_write_password">من فضلك قم بكتابة كلمة المرور</string>
+    <string name="name">الاسم</string>
+
+    <string-array name="system">
+        <item>@string/earth</item>
+        <item>@string/moon</item>
+    </string-array>
 </resources>

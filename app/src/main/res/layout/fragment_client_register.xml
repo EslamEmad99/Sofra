@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/auth_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            tools:context=".ui.fragments.ClientRegisterFragment">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/fragment_client_register_user_image"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:src="@drawable/new_user"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/fragment_client_register_user_name_et"
+                style="@style/fragment_register_edit_text_style"
+                android:drawableEnd="@drawable/ic_profile"
+                android:hint="@string/name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_client_register_user_image" />
+
+            <EditText
+                android:id="@+id/fragment_client_register_user_email_et"
+                style="@style/fragment_register_edit_text_style"
+                android:drawableEnd="@drawable/ic_email"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_client_register_user_name_et" />
+
+            <EditText
+                android:id="@+id/fragment_client_register_user_phone_et"
+                style="@style/fragment_register_edit_text_style"
+                android:drawableEnd="@drawable/ic_phone"
+                android:gravity="start"
+                android:hint="@string/phone"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_client_register_user_email_et" />
+
+            <RelativeLayout
+                android:id="@+id/relative_one"
+                style="@style/fragment_register_edit_text_style"
+                android:layout_height="@dimen/_32sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_client_register_user_phone_et">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_home" />
+
+                <Spinner
+                    android:id="@+id/fragment_client_register_city_spinner"
+                    style="@style/SpinnerWithNoArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/img1"
+                    android:layout_toEndOf="@+id/drop1"
+                    android:background="@null"
+                    android:spinnerMode="dialog"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/drop1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:src="@drawable/ic_arrow_down" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_two"
+                style="@style/fragment_register_edit_text_style"
+                android:layout_height="@dimen/_32sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/relative_one">
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_home" />
+
+                <Spinner
+                    android:id="@+id/fragment_client_register_region_spinner"
+                    style="@style/SpinnerWithNoArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/img2"
+                    android:layout_toEndOf="@+id/drop2"
+                    android:background="@null"
+                    android:gravity="end"
+                    android:spinnerMode="dialog" />
+
+                <ImageView
+                    android:id="@+id/drop2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:src="@drawable/ic_arrow_down" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/fragment_client_register_password"
+                style="@style/fragment_register_edit_text_style"
+                android:drawableEnd="@drawable/ic_lock"
+                android:gravity="end"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/relative_two" />
+
+            <EditText
+                android:id="@+id/fragment_client_register_password_again"
+                style="@style/fragment_register_edit_text_style"
+                android:drawableEnd="@drawable/ic_lock"
+                android:gravity="end"
+                android:hint="@string/repeat_password"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_client_register_password" />
+
+            <CheckBox
+                android:id="@+id/fragment_client_register_show_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:buttonTint="#000"
+                android:text="@string/show_password"
+                android:textColor="#000"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_client_register_password_again" />
+
+            <Button
+                android:id="@+id/fragment_client_register_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_36sdp"
+                android:layout_marginBottom="@dimen/_36sdp"
+                android:background="@drawable/button_background"
+                android:text="@string/register"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_client_register_show_password" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -24,33 +24,33 @@ public class SharedPreferencesManger {
         return INSTANCE;
     }
 
-    public void saveStringValue(String key, String value) {
+    public void setStringValue(String key, String value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value);
         editor.apply();
     }
 
-    public void saveIntegerValue(String key, int value) {
+    public void setIntegerValue(String key, int value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(key, value);
         editor.apply();
     }
 
-    public void saveBooleanValue(String key, boolean value) {
+    public void setBooleanValue(String key, boolean value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, value);
         editor.apply();
     }
 
-    public String restoreStringValue(String key) {
+    public String getStringValue(String key) {
         return sharedPreferences.getString(key,"Empty");
     }
 
-    public int restoreIntegerValue(String key) {
+    public int getIntegerValue(String key) {
         return sharedPreferences.getInt(key,0);
     }
 
-    public boolean restoreBooleanValue(String key) {
+    public boolean getBooleanValue(String key) {
         return sharedPreferences.getBoolean(key,false);
     }
 }

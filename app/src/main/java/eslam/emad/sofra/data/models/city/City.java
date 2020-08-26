@@ -19,6 +19,9 @@ public class City {
     @Expose
     private String name;
 
+    public City() {
+    }
+
     public City(Integer id, String name) {
         this.id = id;
         this.name = name;

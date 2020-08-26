@@ -70,7 +70,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/restaurant_item_restaurant_name_tv" />
 
             <TextView
-                android:id="@+id/tv1"
+                android:id="@+id/fragment_login_email_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_6sdp"
@@ -81,7 +81,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/restaurant_item_restaurant_ratingBar" />
 
             <TextView
-                android:id="@+id/tv2"
+                android:id="@+id/fragment_login_password_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_6sdp"
@@ -89,7 +89,7 @@
                 android:text="رسوم التوصيل :"
                 android:textSize="@dimen/_6sdp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv1" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_email_tv" />
 
             <TextView
                 android:id="@+id/restaurant_item_restaurant_minimum_charge"
@@ -99,7 +99,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:text="@{restaurant.getMinimumCharger()}"
                 android:textSize="@dimen/_6sdp"
-                app:layout_constraintEnd_toStartOf="@+id/tv1"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_login_email_tv"
                 app:layout_constraintTop_toBottomOf="@+id/restaurant_item_restaurant_ratingBar" />
 
             <TextView
@@ -110,7 +110,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:text="@{restaurant.getDeliveryCost()}"
                 android:textSize="@dimen/_6sdp"
-                app:layout_constraintEnd_toStartOf="@+id/tv2"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_login_password_tv"
                 app:layout_constraintTop_toBottomOf="@+id/restaurant_item_restaurant_minimum_charge" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

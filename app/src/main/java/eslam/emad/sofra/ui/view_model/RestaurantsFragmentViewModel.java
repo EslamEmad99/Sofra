@@ -23,7 +23,7 @@ public class RestaurantsFragmentViewModel extends ViewModel {
     private Executor executor;
     private LiveData<PagedList<Restaurant>> pagedList;
     private RestaurantsDataSourceFactory dataSourceFactory;
-    private MutableLiveData<List<City>> allCities;
+
 
     public RestaurantsFragmentViewModel() {
 
@@ -43,7 +43,7 @@ public class RestaurantsFragmentViewModel extends ViewModel {
                 .setFetchExecutor(executor)
                 .build();
 
-        allCities = Repository.getINSTANCE().getAllCities();
+
     }
 
     public LiveData<PagedList<Restaurant>> getItemPagedList() {
@@ -52,9 +52,5 @@ public class RestaurantsFragmentViewModel extends ViewModel {
 
     public void refresh() {
         dataSourceFactory.getDataSourceMutableLiveData().getValue().invalidate();
-    }
-
-    public MutableLiveData<List<City>> getAllCities() {
-        return allCities;
     }
 }
