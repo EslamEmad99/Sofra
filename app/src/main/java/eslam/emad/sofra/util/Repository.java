@@ -31,6 +31,7 @@ public class Repository {
     private MutableLiveData<ResetPasswordModel> resetPassword;
     private MutableLiveData<NewPasswordModel> newPassword;
     private MutableLiveData<AuthModel> clientRegister;
+    private MutableLiveData<AuthModel> restaurantRegister;
 
     private Repository() {
         allCities = new MutableLiveData<>();
@@ -39,6 +40,7 @@ public class Repository {
         resetPassword = new MutableLiveData<>();
         newPassword = new MutableLiveData<>();
         clientRegister = new MutableLiveData<>();
+        restaurantRegister = new MutableLiveData<>();
     }
 
     public static Repository getINSTANCE() {
@@ -164,9 +166,6 @@ public class Repository {
         ApiClient.getINSTANCE().clientRegister(name, email, password, passwordConfirmation, phone, regionId, profileImage).enqueue(new Callback<AuthModel>() {
             @Override
             public void onResponse(Call<AuthModel> call, Response<AuthModel> response) {
-                if (response.body() != null) {
-                    Log.d(TAG, "onResponse: " + response.body().getStatus());
-                }
                 if (response.isSuccessful()) {
                     clientRegister.setValue(response.body());
                 }
@@ -174,8 +173,49 @@ public class Repository {
 
             @Override
             public void onFailure(Call<AuthModel> call, Throwable t) {
-                Log.d(TAG, "onFailure: " + t.getMessage());
             }
         });
+    }
+
+    public MutableLiveData<AuthModel> getRestaurantRegister() {
+        return restaurantRegister;
+    }
+
+    public void setRestaurantRegister(RequestBody name,
+                                      RequestBody email,
+                                      RequestBody password,
+                                      RequestBody passwordConfirmation,
+                                      RequestBody phone,
+                                      RequestBody whatsApp,
+                                      RequestBody regionId,
+                                      RequestBody deliveryCost,
+                                      RequestBody minimumCharge,
+                                      MultipartBody.Part photo,
+                                      RequestBody deliveryTime) {
+
+        ApiClient.getINSTANCE().restaurantRegister(name,
+                email,
+                password,
+                passwordConfirmation,
+                phone,
+                whatsApp,
+                regionId,
+                deliveryCost,
+                minimumCharge,
+                photo,
+                deliveryTime)
+                .enqueue(new Callback<AuthModel>() {
+                    @Override
+                    public void onResponse(Call<AuthModel> call, Response<AuthModel> response) {
+                        if (response.isSuccessful()) {
+                            restaurantRegister.setValue(response.body());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<AuthModel> call, Throwable t) {
+
+                    }
+                });
     }
 }

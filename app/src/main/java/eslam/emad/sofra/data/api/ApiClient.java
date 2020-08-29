@@ -164,4 +164,29 @@ public class ApiClient {
                 phone,
                 regionId, profileImage);
     }
+
+    public Call<AuthModel> restaurantRegister(RequestBody name,
+                                              RequestBody email,
+                                              RequestBody password,
+                                              RequestBody passwordConfirmation,
+                                              RequestBody phone,
+                                              RequestBody whatsApp,
+                                              RequestBody regionId,
+                                              RequestBody deliveryCost,
+                                              RequestBody mMinimumCharge,
+                                              MultipartBody.Part photo,
+                                              RequestBody deliveryTime) {
+        return apiInterface.restaurantRegister(
+                name,
+                email,
+                password,
+                passwordConfirmation,
+                phone,
+                whatsApp,
+                regionId,
+                deliveryCost,
+                mMinimumCharge,
+                photo,
+                deliveryTime);
+    }
 }

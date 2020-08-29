@@ -40,7 +40,7 @@
                 style="@style/fragment_register_edit_text_style"
                 android:drawableEnd="@drawable/ic_hour"
                 android:hint="@string/delivery_time"
-                android:inputType="number"
+                android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fragment_restaurant_register_email_et" />
@@ -102,7 +102,7 @@
                     android:src="@drawable/ic_home" />
 
                 <Spinner
-                    android:id="@+id/fragment_client_register_region_spinner"
+                    android:id="@+id/fragment_restaurant_register_region_spinner"
                     style="@style/SpinnerWithNoArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

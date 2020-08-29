@@ -112,7 +112,7 @@
                     android:src="@drawable/ic_home" />
 
                 <Spinner
-                    android:id="@+id/fragment_client_register_region_spinner"
+                    android:id="@+id/fragment_restaurant_register_region_spinner"
                     style="@style/SpinnerWithNoArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

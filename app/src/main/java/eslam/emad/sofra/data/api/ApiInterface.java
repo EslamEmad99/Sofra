@@ -72,10 +72,15 @@ public interface ApiInterface {
 
     @POST("restaurant/sign-up")
     @Multipart
-    Call<AuthModel> restaurantRegister(@Part("line") RequestBody line,
-                                       @Part("class_name") RequestBody class_name,
-                                       @Part("function_name") RequestBody function_name,
-                                       @Part("exception_message") RequestBody exception_message,
-                                       @Part MultipartBody.Part file,
-                                       @Part("type") RequestBody type);
+    Call<AuthModel> restaurantRegister(@Part("name")                   RequestBody name,
+                                       @Part("email")                  RequestBody email,
+                                       @Part("password")               RequestBody password,
+                                       @Part("password_confirmation")  RequestBody passwordConfirmation,
+                                       @Part("phone")                  RequestBody phone,
+                                       @Part("whatsapp")               RequestBody whatsApp,
+                                       @Part("region_id")              RequestBody regionId,
+                                       @Part("delivery_cost")          RequestBody deliveryCost,
+                                       @Part("minimum_charger")        RequestBody mMinimumCharge,
+                                       @Part                           MultipartBody.Part photo,
+                                       @Part("delivery_time")          RequestBody deliveryTime);
 }
